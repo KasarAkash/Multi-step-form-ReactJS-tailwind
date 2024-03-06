@@ -3,9 +3,14 @@ import advanced from "../../images/icon-advanced.svg";
 import pro from "../../images/icon-pro.svg";
 import PlansCard from "./PlansCard";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setPlan } from "../../redux/utilReducer";
 
 export default function Step2() {
   const [subscription, setSubscription] = useState(false);
+  const dispatch = useDispatch();
+  const sub = useSelector((state) => state.util.subscription);
+  console.log(sub);
   const data = [
     {
       text: "Arcade",
@@ -97,6 +102,7 @@ export default function Step2() {
             value={subscription}
             onClick={() => {
               setSubscription(!subscription);
+              dispatch(setPlan(!subscription));
             }}
           />
           <span className="slider round" />
