@@ -1,9 +1,14 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setStep } from "../../redux/utilReducer";
 
 export default function Step1() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+
+  const dispatch = useDispatch();
+  const step = useSelector((state) => state.util.step);
 
   return (
     <div>
@@ -43,7 +48,12 @@ export default function Step1() {
           className="outline-none focus:invalid:border-red-600 inline-block border-2 mt-2 w-full p-2 rounded-md focus:border-MarineBlue"
           onChange={(e) => setPhone(e.target.value)}
         />
-        <button className="float-end mt-16 py-3 px-6 bg-MarineBlue text-white rounded-lg">
+        <button
+          className="float-end mt-16 py-3 px-6 bg-MarineBlue text-white rounded-lg"
+          onClick={() => {
+            dispatch(setStep(step + 1));
+          }}
+        >
           Next Step
         </button>
       </form>

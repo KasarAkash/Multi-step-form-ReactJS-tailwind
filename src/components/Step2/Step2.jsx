@@ -4,13 +4,13 @@ import pro from "../../images/icon-pro.svg";
 import PlansCard from "./PlansCard";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setPlan } from "../../redux/utilReducer";
+import { setStep, setSub, setPlan as sPlan } from "../../redux/utilReducer";
 
 export default function Step2() {
-  const [subscription, setSubscription] = useState(false);
-  const dispatch = useDispatch();
-  const sub = useSelector((state) => state.util.subscription);
-  console.log(sub);
+  // const sub = useSelector((state) => state.util.subscription);
+  // const plan = useSelector((state) => state.util.plan);
+  const step = useSelector((state) => state.util.step);
+
   const data = [
     {
       text: "Arcade",
@@ -29,7 +29,10 @@ export default function Step2() {
       priceY: "$150/yr",
     },
   ];
+
   const [selectPlan, setSelectPlan] = useState(data[0].text);
+  const [subscription, setSubscription] = useState(false);
+  const dispatch = useDispatch();
 
   return (
     <div className="w-full mx-10">
@@ -44,6 +47,7 @@ export default function Step2() {
           onClick={(e) => {
             e.preventDefault();
             setSelectPlan(data[0].text);
+            dispatch(sPlan(data[0].text));
           }}
         >
           <PlansCard
@@ -60,6 +64,7 @@ export default function Step2() {
           onClick={(e) => {
             e.preventDefault();
             setSelectPlan(data[1].text);
+            dispatch(sPlan(data[1].text));
           }}
         >
           <PlansCard
@@ -76,6 +81,7 @@ export default function Step2() {
           onClick={(e) => {
             e.preventDefault();
             setSelectPlan(data[2].text);
+            dispatch(sPlan(data[2].text));
           }}
         >
           <PlansCard
@@ -102,7 +108,7 @@ export default function Step2() {
             value={subscription}
             onClick={() => {
               setSubscription(!subscription);
-              dispatch(setPlan(!subscription));
+              dispatch(setSub(!subscription));
             }}
           />
           <span className="slider round" />
@@ -117,8 +123,20 @@ export default function Step2() {
       </div>
 
       <div className="flex items-center justify-between mt-16">
-        <button className="text-CoolGray">Go Back</button>
-        <button className="py-3 px-6 bg-MarineBlue text-white rounded-lg">
+        <button
+          className="text-CoolGray"
+          onClick={() => {
+            dispatch(setStep(step - 1));
+          }}
+        >
+          Go Back
+        </button>
+        <button
+          className="py-3 px-6 bg-MarineBlue text-white rounded-lg"
+          onClick={() => {
+            dispatch(setStep(step + 1));
+          }}
+        >
           Next Step
         </button>
       </div>
