@@ -1,3 +1,4 @@
+import { useState } from "react";
 import bgDesktop from "../../images/bg-sidebar-desktop.svg";
 import ItemTile from "./ItemTile";
 
@@ -9,36 +10,62 @@ export default function Sidebar() {
     { Step: 4, Text: "Summary" },
   ];
 
+  const [selectOp, setSelectOp] = useState(sidebarText[0].Text);
+
   return (
     <div className="relative col-span-1">
       <img src={bgDesktop} className="object-cover w-full" />
       <div className="absolute z-10 top-4">
-        <button>
+        <button
+          value={selectOp}
+          onClick={(e) => {
+            e.preventDefault();
+            setSelectOp(sidebarText[0].Text);
+          }}
+        >
           <ItemTile
             step={sidebarText[0].Step}
             title={sidebarText[0].Text}
-            active={true}
+            active={sidebarText[0].Text === selectOp}
           />
         </button>
-        <button>
+        <button
+          value={selectOp}
+          onClick={(e) => {
+            e.preventDefault();
+            setSelectOp(sidebarText[1].Text);
+          }}
+        >
           <ItemTile
             step={sidebarText[1].Step}
             title={sidebarText[1].Text}
-            active={""}
+            active={sidebarText[1].Text === selectOp}
           />
         </button>
-        <button>
+        <button
+          value={selectOp}
+          onClick={(e) => {
+            e.preventDefault();
+            setSelectOp(sidebarText[2].Text);
+          }}
+        >
           <ItemTile
             step={sidebarText[2].Step}
             title={sidebarText[2].Text}
-            active={""}
+            active={sidebarText[2].Text === selectOp}
           />
         </button>
-        <button>
+        <button
+          value={selectOp}
+          onClick={(e) => {
+            e.preventDefault();
+            setSelectOp(sidebarText[3].Text);
+          }}
+        >
           <ItemTile
             step={sidebarText[3].Step}
             title={sidebarText[3].Text}
-            active={""}
+            active={sidebarText[3].Text === selectOp}
           />
         </button>
       </div>

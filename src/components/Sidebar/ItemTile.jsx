@@ -1,12 +1,12 @@
 export default function ItemTile({ step, title, active }) {
   return (
-    <div className="flex gap-4 mx-6 my-4 items-center">
+    <div className="flex gap-4 mx-6 my-4 items-center ">
       <div
         className={`rounded-full ${
           active && "bg-PastelBlue"
         } border-2 border-PastelBlue h-12 w-12 flex justify-center items-center font-bold ${
           active && "text-MarineBlue"
-        } text-white`}
+        } text-white transition-colors duration-500`}
       >
         {step}
       </div>
