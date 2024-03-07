@@ -18,7 +18,10 @@ export default function Step1() {
       </p>
       <form
         onSubmit={(e) => {
-          e.preventDefault;
+          e.preventDefault();
+          if ((name, email, phone)) {
+            dispatch(setStep(step + 1));
+          }
         }}
       >
         <p className="mt-8 text-MarineBlue font-medium">Name</p>
@@ -27,7 +30,7 @@ export default function Step1() {
           value={name}
           required
           placeholder="e.g. Stephen King"
-          className="outline-none focus:invalid:border-red-600 inline-block border-2 mt-2 w-full p-2 rounded-md focus:border-MarineBlue"
+          className="outline-none inline-block border-2 mt-2 w-full p-2 rounded-md focus:border-MarineBlue"
           onChange={(e) => setName(e.target.value)}
         />
         <p className="mt-3 text-MarineBlue font-medium">Email</p>
@@ -36,7 +39,7 @@ export default function Step1() {
           value={email}
           required
           placeholder="e.g. stephenking@lorem.com"
-          className="outline-none focus:invalid:border-red-600 inline-block border-2 mt-2 w-full p-2 rounded-md focus:border-MarineBlue"
+          className="outline-none  inline-block border-2 mt-2 w-full p-2 rounded-md focus:border-MarineBlue"
           onChange={(e) => setEmail(e.target.value)}
         />
         <p className="mt-3 text-MarineBlue font-medium">Phone Number</p>
@@ -45,14 +48,12 @@ export default function Step1() {
           value={phone}
           required
           placeholder="e.g. +1 234 567 890"
-          className="outline-none focus:invalid:border-red-600 inline-block border-2 mt-2 w-full p-2 rounded-md focus:border-MarineBlue"
+          className="outline-none  inline-block border-2 mt-2 w-full p-2 rounded-md focus:border-MarineBlue"
           onChange={(e) => setPhone(e.target.value)}
         />
         <button
+          type="submit"
           className="float-end mt-16 py-3 px-6 bg-MarineBlue text-white rounded-lg"
-          onClick={() => {
-            dispatch(setStep(step + 1));
-          }}
         >
           Next Step
         </button>
