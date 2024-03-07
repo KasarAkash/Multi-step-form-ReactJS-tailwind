@@ -30,7 +30,7 @@ export default function Step2() {
     },
   ];
 
-  const [selectPlan, setSelectPlan] = useState(data[0].text);
+  const [selectPlan, setSelectPlan] = useState(data[0]);
   const [subscription, setSubscription] = useState(false);
   const dispatch = useDispatch();
 
@@ -46,14 +46,13 @@ export default function Step2() {
           value={selectPlan}
           onClick={(e) => {
             e.preventDefault();
-            setSelectPlan(data[0].text);
-            dispatch(sPlan(data[0].text));
+            setSelectPlan(data[0]);
           }}
         >
           <PlansCard
             img={arcade}
             name={data[0].text}
-            isActive={data[0].text === selectPlan}
+            isActive={data[0].text === selectPlan.text}
             price={subscription ? data[0].priceY : data[0].priceM}
             isFree={subscription}
           />
@@ -63,14 +62,13 @@ export default function Step2() {
           value={selectPlan}
           onClick={(e) => {
             e.preventDefault();
-            setSelectPlan(data[1].text);
-            dispatch(sPlan(data[1].text));
+            setSelectPlan(data[1]);
           }}
         >
           <PlansCard
             img={advanced}
             name={data[1].text}
-            isActive={data[1].text === selectPlan}
+            isActive={data[1].text === selectPlan.text}
             price={subscription ? data[1].priceY : data[1].priceM}
             isFree={subscription}
           />
@@ -80,14 +78,13 @@ export default function Step2() {
           value={selectPlan}
           onClick={(e) => {
             e.preventDefault();
-            setSelectPlan(data[2].text);
-            dispatch(sPlan(data[2].text));
+            setSelectPlan(data[2]);
           }}
         >
           <PlansCard
             img={pro}
             name={data[2].text}
-            isActive={data[2].text === selectPlan}
+            isActive={data[2].text === selectPlan.text}
             price={subscription ? data[2].priceY : data[2].priceM}
             isFree={subscription}
           />
@@ -135,6 +132,7 @@ export default function Step2() {
           className="py-3 px-6 bg-MarineBlue text-white rounded-lg"
           onClick={() => {
             dispatch(setStep(step + 1));
+            dispatch(sPlan(selectPlan));
           }}
         >
           Next Step

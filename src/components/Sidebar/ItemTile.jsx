@@ -1,6 +1,6 @@
 export default function ItemTile({ step, title, active }) {
   return (
-    <div className="flex gap-4 mx-6 my-4 items-center ">
+    <div className="flex gap-4 mx-6 mt-8 items-center ">
       <div
         className={`rounded-full ${
           active && "bg-PastelBlue"
