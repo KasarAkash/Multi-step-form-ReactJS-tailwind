@@ -1,8 +1,6 @@
-import { useState } from "react";
 import bgDesktop from "../../images/bg-sidebar-desktop.svg";
 import ItemTile from "./ItemTile";
-import { useDispatch, useSelector } from "react-redux";
-import { setStep } from "../../redux/utilReducer";
+import { useSelector } from "react-redux";
 
 export default function Sidebar() {
   let sidebarText = [
@@ -11,9 +9,8 @@ export default function Sidebar() {
     { Step: 3, Text: "Add-ons" },
     { Step: 4, Text: "Summary" },
   ];
-  // const dispatch = useDispatch();
+
   const step = useSelector((state) => state.util.step);
-  const [selectOp, setSelectOp] = useState(sidebarText[0].Text);
 
   return (
     <div className="relative col-span-1">

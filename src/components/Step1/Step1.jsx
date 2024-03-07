@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { setStep } from "../../redux/utilReducer";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Step1() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
-  const dispatch = useDispatch();
   const step = useSelector((state) => state.util.step);
+  const dispatch = useDispatch();
 
   return (
     <div>

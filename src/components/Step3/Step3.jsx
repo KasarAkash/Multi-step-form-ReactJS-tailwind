@@ -1,6 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
 import AddonTile from "./AddonTile";
-import { setStep } from "../../redux/utilReducer";
 
 export default function Step3() {
   const data = [
@@ -24,10 +22,6 @@ export default function Step3() {
     },
   ];
 
-  const dispatch = useDispatch();
-  const step = useSelector((state) => state.util.step);
-  const sub = useSelector((state) => state.util.subscription);
-
   return (
     <div className="w-full mx-10">
       <h1 className="text-3xl text-MarineBlue font-bold">Pick add-ons</h1>
@@ -36,28 +30,16 @@ export default function Step3() {
       </p>
 
       {data.map((obj) => (
-        <AddonTile
-          key={obj.title}
-          title={obj.title}
-          desc={obj.desc}
-          price={sub ? obj.priceY : obj.priceM}
-        />
+        <AddonTile key={obj.title} title={obj.title} desc={obj.desc} />
       ))}
 
       <div className="flex items-center justify-between mt-10">
-        <button
-          className="text-CoolGray"
-          onClick={() => {
-            dispatch(setStep(step - 1));
-          }}
-        >
+        <button className="text-CoolGray" onClick={() => {}}>
           Go Back
         </button>
         <button
           className="py-3 px-6 bg-MarineBlue text-white rounded-lg"
-          onClick={() => {
-            dispatch(setStep(step + 1));
-          }}
+          onClick={() => {}}
         >
           Next Step
         </button>

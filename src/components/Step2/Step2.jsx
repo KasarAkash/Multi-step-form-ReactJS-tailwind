@@ -3,14 +3,8 @@ import advanced from "../../images/icon-advanced.svg";
 import pro from "../../images/icon-pro.svg";
 import PlansCard from "./PlansCard";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setStep, setSub, setPlan as sPlan } from "../../redux/utilReducer";
 
 export default function Step2() {
-  // const sub = useSelector((state) => state.util.subscription);
-  // const plan = useSelector((state) => state.util.plan);
-  const step = useSelector((state) => state.util.step);
-
   const data = [
     {
       text: "Arcade",
@@ -32,7 +26,6 @@ export default function Step2() {
 
   const [selectPlan, setSelectPlan] = useState(data[0]);
   const [subscription, setSubscription] = useState(false);
-  const dispatch = useDispatch();
 
   return (
     <div className="w-full mx-10">
@@ -105,7 +98,6 @@ export default function Step2() {
             value={subscription}
             onClick={() => {
               setSubscription(!subscription);
-              dispatch(setSub(!subscription));
             }}
           />
           <span className="slider round" />
@@ -120,20 +112,12 @@ export default function Step2() {
       </div>
 
       <div className="flex items-center justify-between mt-16">
-        <button
-          className="text-CoolGray"
-          onClick={() => {
-            dispatch(setStep(step - 1));
-          }}
-        >
+        <button className="text-CoolGray" onClick={() => {}}>
           Go Back
         </button>
         <button
           className="py-3 px-6 bg-MarineBlue text-white rounded-lg"
-          onClick={() => {
-            dispatch(setStep(step + 1));
-            dispatch(sPlan(selectPlan));
-          }}
+          onClick={() => {}}
         >
           Next Step
         </button>
