@@ -3,6 +3,8 @@ import advanced from "../../images/icon-advanced.svg";
 import pro from "../../images/icon-pro.svg";
 import PlansCard from "./PlansCard";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setStep, setStep2Data } from "../../redux/utilReducer";
 
 export default function Step2() {
   const data = [
@@ -26,6 +28,8 @@ export default function Step2() {
 
   const [selectPlan, setSelectPlan] = useState(data[0]);
   const [subscription, setSubscription] = useState(false);
+  const step = useSelector((state) => state.util.step);
+  const dispatch = useDispatch();
 
   return (
     <div className="w-full mx-10">
@@ -112,12 +116,28 @@ export default function Step2() {
       </div>
 
       <div className="flex items-center justify-between mt-16">
-        <button className="text-CoolGray" onClick={() => {}}>
+        <button
+          className="text-CoolGray"
+          onClick={() => {
+            dispatch(setStep(step - 1));
+          }}
+        >
           Go Back
         </button>
         <button
           className="py-3 px-6 bg-MarineBlue text-white rounded-lg"
-          onClick={() => {}}
+          onClick={() => {
+            dispatch(
+              setStep2Data([
+                {
+                  text: selectPlan.text,
+                  price: subscription ? selectPlan.priceY : selectPlan.priceM,
+                },
+                subscription,
+              ])
+            );
+            dispatch(setStep(step + 1));
+          }}
         >
           Next Step
         </button>
