@@ -10,6 +10,9 @@ export default function AddonTile({ obj, price, isActive }) {
           <input
             type="checkbox"
             checked={isActive}
+            onChange={(e) => {
+              e.preventDefault();
+            }}
             className="outline-none border-LightGray p-10  accent-PurplishBlue w-4 h-4 border"
           />
           <div className="">
