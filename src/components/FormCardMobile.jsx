@@ -11,7 +11,7 @@ export default function FormCardMobile() {
   return (
     <div className="w-full sm:hidden pb-64 absolute top-0 left-0 ring-0">
       <MobileProgressbar />
-      <div className="col-span-2 bg-white rounded-xl p-6 m-4  flex justify-center items-center absolute top-24">
+      <div className="col-span-2 bg-white rounded-xl p-6 m-4  flex justify-center items-center absolute top-28">
         {step === 1 && <Step1 />}
         {step === 2 && <Step2 />}
         {step === 3 && <Step3 />}
