@@ -2,7 +2,7 @@ import thank from "../images/icon-thank-you.svg";
 
 export default function Step5() {
   return (
-    <div className="block">
+    <div className="md:block w-full">
       <div className="flex flex-col items-center">
         <img src={thank} alt="" />
         <h1 className="font-bold text-MarineBlue mt-4 text-3xl">Thank you!</h1>

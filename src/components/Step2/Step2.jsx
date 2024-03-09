@@ -32,13 +32,13 @@ export default function Step2() {
   const dispatch = useDispatch();
 
   return (
-    <div className="w-full mx-10">
+    <div className="w-full md:mx-10">
       <h1 className="text-3xl text-MarineBlue font-bold">Select your plan</h1>
       <p className="text-CoolGray mt-1">
         You have the option of monthly or yearly billing.
       </p>
 
-      <div className="grid grid-cols-3 mt-8 gap-6">
+      <div className="grid md:grid-cols-3 mt-8 gap-6">
         <button
           value={selectPlan}
           onClick={(e) => {

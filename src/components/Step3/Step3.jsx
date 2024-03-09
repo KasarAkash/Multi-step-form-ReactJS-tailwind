@@ -34,7 +34,7 @@ export default function Step3() {
   ];
 
   return (
-    <div className="w-full mx-10">
+    <div className="w-full md:mx-10">
       <h1 className="text-3xl text-MarineBlue font-bold">Pick add-ons</h1>
       <p className="text-CoolGray mt-1 mb-8">
         Add-ons help enhance your gaming experience.
