@@ -13,11 +13,13 @@ export default function AddonTile({ obj, price, isActive }) {
             onChange={(e) => {
               e.preventDefault();
             }}
-            className="outline-none border-LightGray p-10  accent-PurplishBlue w-4 h-4 border"
+            className="outline-none hidden md:block border-LightGray p-10  accent-PurplishBlue w-5 h-5 border"
           />
           <div className="">
             <p className="text-MarineBlue font-medium text-xl">{obj.title}</p>
-            <p className="text-CoolGray">{obj.desc}</p>
+            <p className="text-CoolGray text-ellipsis overflow-hidden whitespace-nowrap">
+              {obj.desc}
+            </p>
           </div>
         </div>
 
